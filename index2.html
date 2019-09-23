@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	  .contenedor{
+	  	max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+	  }
+	  .contenedor .column{
+	  	display: flex;
+	  	width: 200px;
+	  	height: 200px;
+
+	  }
+	  .contenedor .column>div{
+	  	width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+	  }
+	  body.contenedorBody .iconPad{
+	  	position: absolute;
+	  }
+	  body.contenedorBody .iconDiv{
+	  	display: none;
+	  }
+	  body.contenedorBody .iconDiv.act
+	 {
+	  	display: block;
+	  }
+	  .subrayado{
+	  	background: yellow;
+	  }
+	</style>
+</head>
+<body class="contenedorBody">
+	<div class="iconPad">
+		<div class="icon"><a href="#">+</a></div>
+	    <div class="iconDiv">
+		<ul>
+			<li class="amigos enero1">
+				<a href="#"><span>user1</span></a>
+			</li>
+			<li class="amigos febrero4">
+				<a href="#"><span>user2</span></a>
+			</li>
+			<li class="amigos marzo5">
+				<a href="#"><span>user3</span></a>
+			</li>
+			<li class="amigos abril3">
+				<a href="#"><span>user4</span></a>
+			</li>
+		</ul>
+	    </div>
+	</div>
+	
+	<div class="contenedor">
+		<div class="column">
+			<div id="enero1" class="trigger">x</div>
+			<div id="enero2" class="trigger">x</div>
+			<div id="enero3" class="trigger">x</div>
+			<div id="enero4" class="trigger">x</div>
+			<div id="enero5" class="trigger">x</div>
+			<div id="enero6" class="trigger">x</div>
+			<div id="enero7" class="trigger">x</div>
+		</div>
+		<div class="column">
+			<div id="febrero1" class="trigger">x</div>
+			<div id="febrero2" class="trigger">x</div>
+			<div id="febrero3" class="trigger">x</div>
+			<div id="febrero4" class="trigger">x</div>
+			<div id="febrero5" class="trigger">x</div>
+			<div id="febrero6" class="trigger">x</div>
+			<div id="febrero7" class="trigger">x</div>
+		</div>
+		<div class="column">
+			<div id="marzo1" class="trigger">x</div>
+			<div id="marzo2" class="trigger">x</div>
+			<div id="marzo3" class="trigger">x</div>
+			<div id="marzo4" class="trigger">x</div>
+			<div id="marzo5" class="trigger">x</div>
+			<div id="marzo6" class="trigger">x</div>
+			<div id="marzo7" class="trigger">x</div>
+		</div>
+		<div class="column">
+			<div id="abril1" class="trigger">x</div>
+			<div id="abril2" class="trigger">x</div>
+			<div id="abril3" class="trigger">x</div>
+			<div id="abril4" class="trigger">x</div>
+			<div id="abril5" class="trigger">x</div>
+			<div id="abril6" class="trigger">x</div>
+			<div id="abril7" class="trigger">x</div>
+		</div>
+	</div>
+	<script>	
+	  window.onload=function(){
+
+	  	function clickIcon(){
+	  		var iconMas = document.querySelector(".icon");
+	  		var iconDiv = document.querySelector(".iconDiv");
+	  		iconMas.onclick = function(){
+	  			iconDiv.classList.toggle("act");
+	  		}
+	  	}
+
+	  	clickIcon();
+
+	  	function casilla(){
+	  		var casilla = document.querySelectorAll(".trigger");
+	  	    var amigos = document.querySelectorAll(".amigos");
+
+	  	    
+            var casillaIdtexto= "";
+
+	  	    for (var i = 0; i < amigos.length; i++) {
+            amigos[i].onclick = function(){
+            	this.classList.toggle("click");
+
+
+            		var casillaId = document.querySelector("#" + this.classList[1]);
+
+
+            		console.log(this.classList[1]);
+            			console.log(casillaId);
+
+            			if (casillaId.classList.contains("subrayado")) {
+                           casillaId.classList.remove("subrayado");
+            			}else{
+            			   casillaId.classList.add("subrayado");
+            			}
+            			
+
+            }
+	  	};
+	  	}
+
+	  	casilla();
+
+	  }
+
+	</script>
+</body>
+</html>
